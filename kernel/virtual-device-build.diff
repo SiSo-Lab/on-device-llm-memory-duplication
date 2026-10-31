@@ -1,0 +1,28 @@
+diff --git a/BUILD.bazel b/BUILD.bazel
+--- a/BUILD.bazel
++++ b/BUILD.bazel
+@@ -249,7 +249,8 @@ dependency_graph(
+ pkg_files(
+     name = "virtual_device_x86_64_dist_files",
+     srcs = [
++        "//eksm:eksm_p",
+         ":virtual_device_x86_64",
+         ":virtual_device_x86_64_initramfs",
+         ":virtual_device_x86_64_merged_kernel_uapi_headers",
+         ":virtual_device_x86_64_modules_install",
+diff --git a/virtual_device.fragment b/virtual_device.fragment
+--- a/virtual_device.fragment
++++ b/virtual_device.fragment
+@@ -34,3 +34,4 @@ CONFIG_SND_ALOOP=m
+ 
+ # TV-specific drivers
+ CONFIG_USB_PULSE8_CEC=m
++CONFIG_KSM=y
+diff --git a/virtual_device_core.fragment b/virtual_device_core.fragment
+--- a/virtual_device_core.fragment
++++ b/virtual_device_core.fragment
+@@ -7,3 +7,4 @@ CONFIG_VIRTIO_NET=m
+ 
+ # Disable module signing during build
+ # CONFIG_MODULE_SIG_ALL is not set
++CONFIG_KSM=y

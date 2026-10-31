@@ -1,0 +1,13 @@
+load("//build/kernel/kleaf:kernel.bzl", "kernel_module")
+
+kernel_module(
+    name = "eksm_p",
+    srcs = [
+        "Makefile",
+        "Kbuild",
+        "eksm_p.c",
+    ],
+    kernel_build = "//common:kernel_x86_64",
+    visibility = ["//common-modules/virtual-device:__pkg__"],
+    outs = ["eksm_p.ko"],
+)
